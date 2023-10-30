@@ -9,7 +9,8 @@
     android:orientation="vertical"
     android:gravity="center"
     android:paddingTop="20dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/BackGroundUser2">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                 android:background="@drawable/customedittext"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
-                android:hint="Username"
+                android:hint="Usuario"
                 android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColor="@android:color/white"
@@ -61,7 +62,7 @@
                 android:background="@drawable/customedittext"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
-                android:hint="Password"
+                android:hint="Contraseña"
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@android:color/white"
@@ -109,7 +110,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/bonne"
+            android:background="@color/DarkGreen"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="24dp">
@@ -120,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="¿Quieres hacer parte de Udersight?"
-                android:textColor="@color/DarkBlue"
+                android:textColor="@color/bonne"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

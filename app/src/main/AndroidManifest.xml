@@ -15,6 +15,18 @@
         android:theme="@style/Theme.Saycs"
         tools:targetApi="31">
         <activity
+            android:name=".LoginuserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterempresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisteruserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginempresaActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingTop="20dp"
+    tools:context=".MainActivity"
+    android:background="@drawable/BackGroundEmpresa2">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        android:background="@drawable/customedittext">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="24dp"
+            android:background="@color/DarkGreen">
+
+
+            <TextView
+                android:id="@+id/SignInText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:textSize="36sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/UsuarioEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/customedittext"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:hint="Usuario"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="@android:color/black"
+                android:textColorHint="@color/bonne"/>
+
+            <EditText
+                android:id="@+id/NombreEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/customedittext"
+                android:drawableLeft="@drawable/baseline_business_center_24"
+                android:drawablePadding="8dp"
+                android:hint="Nombre de la empresa"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="@android:color/black"
+                android:textColorHint="@color/bonne"/>
+            <EditText
+                android:id="@+id/DireccionEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/customedittext"
+                android:drawableLeft="@drawable/baseline_business_24"
+                android:drawablePadding="8dp"
+                android:hint="Direccion"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="@android:color/black"
+                android:textColorHint="@color/bonne"/>
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/customedittext"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="8dp"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="@android:color/black"
+                android:textColorHint="@color/bonne"/>
+            <EditText
+                android:id="@+id/TipoEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/customedittext"
+                android:drawableLeft="@drawable/baseline_local_activity_24"
+                android:drawablePadding="8dp"
+                android:hint="Actividad Economica"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="@android:color/black"
+                android:textColorHint="@color/bonne"/>
+
+
+            <Button
+                android:id="@+id/SignInButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/bonne"
+                android:text="Registrar"
+                android:textColor="@color/DarkBlue"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/LogInButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+
+                android:backgroundTint="@color/DarkBlue"
+                android:text="Inicia sesión"
+                android:textColor="@color/bonne"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+
+
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/DevolverButton"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/bonne"
+        android:text="Regresar"
+        android:textColor="@color/DarkBlue"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+
+</LinearLayout>
