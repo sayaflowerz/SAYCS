@@ -149,7 +149,7 @@
         android:layout_height="60dp"
         android:backgroundTint="@color/bonne"
         android:text="Regresar"
-        android:textColor="@color/DarkBlue"
+        android:textColor="@color/DarkGreen"
         android:textSize="18sp"
         app:cornerRadius="20dp" />
 

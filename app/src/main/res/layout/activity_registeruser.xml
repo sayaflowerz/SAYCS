@@ -94,10 +94,18 @@
 
 
 
-
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/DevolverButton"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/DarkBlue"
+        android:text="Regresar"
+        android:textColor="@color/bonne"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
 
 </LinearLayout>

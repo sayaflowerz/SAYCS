@@ -8,9 +8,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:paddingTop="20dp"
     tools:context=".MainActivity"
-    android:background="@drawable/BackGroundUser2">
+    android:background="@drawable/BackGroundUser">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:padding="24dp"
+            android:padding="23dp"
             android:background="@color/DarkBlue">
 
 
@@ -33,7 +32,7 @@
                 android:id="@+id/LogInText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LogIn"
+                android:text="@string/login_text"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@android:color/white"
                 android:textSize="36sp"
@@ -47,7 +46,7 @@
                 android:background="@drawable/customedittext"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
-                android:hint="Usuario"
+                android:hint="@string/Uuario"
                 android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColor="@android:color/white"
@@ -62,7 +61,7 @@
                 android:background="@drawable/customedittext"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
-                android:hint="Contraseña"
+                android:hint="@string/Contraseña"
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@android:color/white"
@@ -75,7 +74,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/bonne"
-                android:text="Inicia sesión"
+                android:text="@string/iniciar_sesion"
                 android:textColor="@color/DarkBlue"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
@@ -85,13 +84,10 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
                 android:backgroundTint="@color/bonne"
-                android:text="Registrate"
+                android:text="@string/Registar"
                 android:textColor="@color/DarkBlue"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
-
-
-
 
         </LinearLayout>
 
@@ -110,10 +106,10 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/DarkGreen"
+            android:background="@color/bonne"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/EmpresaText"
@@ -121,8 +117,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="¿Quieres hacer parte de Udersight?"
-                android:textColor="@color/bonne"
-                android:textSize="18sp"
+                android:textColor="@color/DarkBlue"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <Button
@@ -131,7 +127,27 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/DarkBlue"
-                android:text="Registra tu empresa"
+                android:text="@string/registrar_empresa"
+                android:textColor="@color/bonne"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+            <TextView
+                android:id="@+id/Empresa2Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="¿Ya eres parte de Udersight?"
+                android:textColor="@color/DarkBlue"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingTop="2dp"/>
+            <Button
+                android:id="@+id/LogInEmprendedor2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/DarkBlue"
+                android:text="@string/iniciar_sesion"
                 android:textColor="@color/bonne"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
