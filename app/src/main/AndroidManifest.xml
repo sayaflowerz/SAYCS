@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Saycs"
         tools:targetApi="31">
         <activity
+            android:name=".FormularioEventoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MostrarEventoActivity"
             android:exported="false" />
         <activity
