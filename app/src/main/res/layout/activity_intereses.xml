@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".MainActivity"
-    android:background="@drawable/Intereses">
+    android:background="@drawable/intereses">
 
 
     <androidx.appcompat.widget.Toolbar

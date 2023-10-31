@@ -9,7 +9,7 @@
     android:gravity="center"
     android:paddingTop="20dp"
     tools:context=".MainActivity"
-    android:background="@drawable/BackGroundEmpresa">
+    android:background="@drawable/background_empresa">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

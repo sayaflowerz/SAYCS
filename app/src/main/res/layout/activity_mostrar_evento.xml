@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/Intereses"
+    android:background="@drawable/intereses"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
