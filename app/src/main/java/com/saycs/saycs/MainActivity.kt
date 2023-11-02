@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val handler = Handler()
         handler.postDelayed({
             val intent = Intent(baseContext, MapActivity::class.java)
-            intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NO_HISTORY
+            intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             finish()
         }, 3000)

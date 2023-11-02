@@ -13,6 +13,7 @@
     <string name="login_text">Log In</string>
     <string name="Uuario">Usuario</string>
     <string name="Contraseña">Contraseña</string>
+    <string name="registrar_usuario">Registrar Usuario</string>
 
 
 </resources>

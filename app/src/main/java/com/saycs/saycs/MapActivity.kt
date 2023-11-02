@@ -1,6 +1,7 @@
 package com.saycs.saycs
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +11,9 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import com.saycs.saycs.databinding.ActivityMapBinding
+import com.saycs.saycs.mundo.controller.EventosController
 import com.saycs.saycs.mundo.model.MyLocation
+import com.saycs.saycs.mundo.services.FileUtils
 import com.saycs.saycs.mundo.services.LocationService
 import com.saycs.saycs.mundo.services.MapEventServices
 import com.saycs.saycs.mundo.services.MapRenderingServices
@@ -24,6 +27,7 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
     private lateinit var mapRenderingServices: MapRenderingServices
     private lateinit var map: MapView
     private lateinit var locationService: LocationService
+    private lateinit var eventosController: EventosController
     private val getSimplePermission= registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { }
@@ -36,7 +40,9 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
         mapRenderingServices= MapRenderingServices(this,map)
         mapEventServices = MapEventServices(map, mapRenderingServices)
         mapEventServices.createOverlayEvents()
-
+        eventosController= EventosController(this)
+        eventosController.cargarEventos()
+        pintarEventosInteres()
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -58,10 +64,12 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
                 mapRenderingServices.center(geo)
                 updateUI(it)
             }else{
-                TODO("Agregar cuando no se puede acceder a la funcion")
+                //"Agregar cuando no se puede acceder a la funcion"
             }
         }
-
+        binding.resgistrarUsuariobtn.setOnClickListener {
+            startActivity(Intent(baseContext, LoginuserActivity::class.java))
+        }
     }
     private fun updateUI(location: Location){
         if (ActivityCompat.checkSelfPermission(
@@ -100,5 +108,13 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
 
     override fun onLocationUpdate(location: Location) {
         updateUI(location)
+    }
+
+    private fun pintarEventosInteres(){
+        val eventos= eventosController.eventos
+        for (i in eventos.indices){
+            mapRenderingServices.addMarker(eventos[i])
+            eventos[i].geoPoint
+        }
     }
 }

@@ -8,6 +8,7 @@ import android.util.Log
 import androidx.core.content.res.ResourcesCompat
 import com.saycs.saycs.R
 import com.google.android.gms.maps.model.LatLng
+import com.saycs.saycs.mundo.model.Evento
 import com.saycs.saycs.mundo.model.MyLocation
 import org.osmdroid.bonuspack.routing.OSRMRoadManager
 import org.osmdroid.bonuspack.routing.Road
@@ -45,6 +46,17 @@ class MapRenderingServices(private val context: Context, private val map : MapVi
         map.controller.setZoom(18.0)
         map.controller.animateTo(bogota)
         geocoder= Geocoder(context)
+    }
+    fun addMarker(event: Evento){
+        val marker= Marker(map)
+        marker.title= event.nombreEvento
+        val icon= ResourcesCompat.getDrawable(context.resources,
+            R.drawable.baseline_location_on_24_red, context.theme)
+        marker.icon=icon
+        marker.position=event.geoPoint
+        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+        map.overlays.add(marker)
+        markers.add(marker)
     }
     fun addMarker(geo: GeoPoint, title: String?=null, typeMarker: Char){
         val marker= Marker(map)
