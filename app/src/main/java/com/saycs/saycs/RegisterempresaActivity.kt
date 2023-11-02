@@ -36,7 +36,7 @@ class RegisterempresaActivity : AppCompatActivity() {
     private fun setupRegisterButton(){
         binding.SignInButton.setOnClickListener{
             if (validateForm()){
-
+                saveData()
             }
             else{
                 val toast = Toast.makeText(this, "Campos incompletos", Toast.LENGTH_SHORT)
@@ -45,8 +45,8 @@ class RegisterempresaActivity : AppCompatActivity() {
         }
     }
 
-    fun saveData() {
-
+    fun saveData():Boolean {
+        var registroExitoso = false
         Log.i("PARSE", "Intento de escritura en Parse")
         var firstObject = ParseObject("Empresa")
 
@@ -66,9 +66,11 @@ class RegisterempresaActivity : AppCompatActivity() {
         firstObject.saveInBackground { e ->
             if (e != null) {
                 Log.e("PARSE", "error:",e)
+                registroExitoso=false
             } else {
                 Log.d("PARSE", "Objeto guardado.")
                 firstObject.unpinInBackground()
+                registroExitoso=true
             }
         }
 
