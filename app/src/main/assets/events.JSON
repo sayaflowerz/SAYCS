@@ -1,0 +1,39 @@
+{
+  "eventos": [
+    {
+      "nombreEvento": "tomaton",
+      "descripcion": "fiesta para re tomar como un senor",
+      "geopoint": {
+        "latitude": "4.633126",
+        "longitude": "-74.075421"
+      },
+      "fecha": "22-12-2023 8:00 PM",
+      "lugar": "arboles",
+      "etiquetaId": "1",
+      "urlPoster": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fexplorersweb.com%2Fcities-underground-tunnels%2F&psig=AOvVaw3_gITr8Oc5SwlTbfCYlwuP&ust=1699041637123000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKDJlryNpoIDFQAAAAAdAAAAABAE"
+    },
+    {
+      "nombreEvento": "batalla break dance",
+      "descripcion": "una gran batalla de break dance",
+      "geopoint": {
+        "latitude": "4.633126",
+        "longitude": "-74.075421"
+      },
+      "fecha": "11-11-2023 7:00 PM",
+      "lugar": "parque nacional",
+      "etiquetaID": "2",
+      "urlPoster": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.redbull.com%2Fco-es%2Fbreaking-o-breakdance-explicacion&psig=AOvVaw3A39bVdHeAh_WwvPI8L9mK&ust=1699042044363000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOjqrv6OpoIDFQAAAAAdAAAAABAE"
+    },
+    {
+      "nombreEvento": "batalla de gallos",
+      "descripcion": "una batalla de rap donde nos sacamos gallos",
+      "geopoint": {
+        "latitude": "4.627056",
+        "longitude": "-74.064966"
+      },
+      "fecha": "15-01-2023 7:00 PM",
+      "lugar": "Pontificia Universidad Javeriana",
+      "urlPoster": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DHe4vt5kFRMY&psig=AOvVaw1Cur2G1L2nFlnTS7nkwJET&ust=1699042191362000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOivwMSPpoIDFQAAAAAdAAAAABAE"
+    }
+  ]
+}
