@@ -54,4 +54,8 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("com.github.MKergall:osmbonuspack:6.9.0")
     implementation("androidx.work:work-runtime-ktx:2.8.1")
+
+    implementation("com.squareup.okhttp3:logging-interceptor:3.8.1")
+    implementation("com.github.parse-community.Parse-SDK-Android:parse:1.26.0")
+    implementation("com.github.parse-community:ParseLiveQuery-Android:1.2.2")
 }
