@@ -23,9 +23,6 @@
             android:name=".MostrarEventoActivity"
             android:exported="false" />
         <activity
-            android:name=".MostrarEventosActivity"
-            android:exported="false" />
-        <activity
             android:name=".InteresesActivity"
             android:exported="false" />
         <activity
@@ -39,9 +36,6 @@
             android:exported="false" />
         <activity
             android:name=".LoginempresaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MapActivity"

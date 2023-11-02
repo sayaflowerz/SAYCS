@@ -1,6 +1,7 @@
 package com.saycs.saycs
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -61,7 +62,9 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
                 TODO("Agregar cuando no se puede acceder a la funcion")
             }
         }
-
+        binding.resgistrarUsuariobtn.setOnClickListener {
+            startActivity(Intent(baseContext, LoginuserActivity::class.java))
+        }
     }
     private fun updateUI(location: Location){
         if (ActivityCompat.checkSelfPermission(
