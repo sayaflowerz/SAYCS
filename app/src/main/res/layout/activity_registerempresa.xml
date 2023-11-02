@@ -124,20 +124,6 @@
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
 
-            <Button
-                android:id="@+id/LogInButton"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-
-                android:backgroundTint="@color/DarkBlue"
-                android:text="Inicia sesión"
-                android:textColor="@color/bonne"
-                android:textSize="18sp"
-                app:cornerRadius="20dp" />
-
-
-
-
 
         </LinearLayout>
 

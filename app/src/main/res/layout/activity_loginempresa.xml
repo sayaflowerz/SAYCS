@@ -80,16 +80,6 @@
                 android:textColor="@color/DarkBlue"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
-            <Button
-                android:id="@+id/SignInButton"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="5dp"
-                android:backgroundTint="@color/bonne"
-                android:text="@string/registrar_empresa"
-                android:textColor="@color/DarkBlue"
-                android:textSize="18sp"
-                app:cornerRadius="20dp" />
 
 
         </LinearLayout>
