@@ -1,10 +1,14 @@
 package com.saycs.saycs
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.parse.ParseException
 import com.parse.ParseObject
+import com.parse.ParseUser
 import com.saycs.saycs.databinding.ActivityRegisterempresaBinding
 
 class RegisterempresaActivity : AppCompatActivity() {
@@ -13,6 +17,10 @@ class RegisterempresaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterempresaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupRegisterButton()
+
+        setupBackButton()
 
     }
 
@@ -36,7 +44,11 @@ class RegisterempresaActivity : AppCompatActivity() {
     private fun setupRegisterButton(){
         binding.SignInButton.setOnClickListener{
             if (validateForm()){
-                saveData()
+                if(saveData()){
+                    val intent = Intent(baseContext, MapActivity::class.java)
+                    intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+                }
             }
             else{
                 val toast = Toast.makeText(this, "Campos incompletos", Toast.LENGTH_SHORT)
@@ -45,10 +57,17 @@ class RegisterempresaActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupBackButton(){
+        binding.DevolverButton.setOnClickListener{
+            super.onBackPressed()
+        }
+    }
+
     fun saveData():Boolean {
-        var registroExitoso = false
+        var registroExitoso = true
         Log.i("PARSE", "Intento de escritura en Parse")
-        var firstObject = ParseObject("Empresa")
+        var objectRegistro = ParseUser()
+
 
         val usuario = binding.UsuarioEmpresa.text.toString()
         val nombreEmpresa = binding.NombreEmpresa.text.toString()
@@ -56,24 +75,36 @@ class RegisterempresaActivity : AppCompatActivity() {
         val contrasena = binding.password.text.toString()
         val actividadEconomica = binding.TipoEmpresa.text.toString()
 
-        firstObject.put("usuario",usuario)
-        firstObject.put("nombre_empresa",nombreEmpresa)
-        firstObject.put("direccion_empresa",direccionEmpresa)
-        firstObject.put("contrasena",contrasena)
-        firstObject.put("actividad_economica",actividadEconomica)
+        objectRegistro.username = usuario
+        objectRegistro.setPassword(contrasena)
+        objectRegistro.put("rol","empresa")
+
+        objectRegistro.put("nombre_empresa",nombreEmpresa)
+        objectRegistro.put("direccion_empresa",direccionEmpresa)
+        objectRegistro.put("actividad_economica",actividadEconomica)
 
 
-        firstObject.saveInBackground { e ->
-            if (e != null) {
-                Log.e("PARSE", "error:",e)
-                registroExitoso=false
-            } else {
-                Log.d("PARSE", "Objeto guardado.")
-                firstObject.unpinInBackground()
+        objectRegistro.signUpInBackground{e: ParseException? ->
+            if(e==null){
+                // Registro exitoso, guarda el token de sesión en SharedPreferences
+                val sessionToken = objectRegistro.sessionToken
+                val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("sessionToken", sessionToken)
+                editor.apply()
                 registroExitoso=true
+                Log.e("PARSE", "Registro exitoso: $sessionToken")
             }
+            else{
+                val errorMessage = e.message
+                Log.e("Registro", "Código de error: ${e.code}")
+                registroExitoso=false
+            }
+
         }
-    return  registroExitoso
+
+        return registroExitoso
+
     }
 
 }
