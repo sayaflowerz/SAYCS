@@ -64,11 +64,19 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
                 mapRenderingServices.center(geo)
                 updateUI(it)
             }else{
-                //"Agregar cuando no se puede acceder a la funcion"
+                //"Agregar cuando no se puede acceder a la location
             }
         }
         binding.resgistrarUsuariobtn.setOnClickListener {
             startActivity(Intent(baseContext, LoginuserActivity::class.java))
+        }
+        binding.locationbtn.setOnClickListener {
+            locationService.locationClient.lastLocation.addOnSuccessListener {
+                if (it!=null){
+                    mapRenderingServices.center(GeoPoint(it.latitude,it.longitude))
+                    updateUI(it)
+                }
+            }
         }
     }
     private fun updateUI(location: Location){
@@ -89,7 +97,6 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
         } else {
             mapRenderingServices.currentLocation.geoPoint= GeoPoint(location.latitude,location.longitude)
             mapRenderingServices.addMarker(mapRenderingServices.currentLocation.geoPoint, typeMarker = 'A')
-            mapRenderingServices.center(GeoPoint(location.latitude,location.longitude))
         }
     }
 
@@ -114,7 +121,6 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
         val eventos= eventosController.eventos
         for (i in eventos.indices){
             mapRenderingServices.addMarker(eventos[i])
-            eventos[i].geoPoint
         }
     }
 }

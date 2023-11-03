@@ -1,13 +1,17 @@
 package com.saycs.saycs.mundo.services
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.location.Geocoder
+import android.os.Bundle
 import android.os.StrictMode
 import android.util.Log
 import androidx.core.content.res.ResourcesCompat
 import com.saycs.saycs.R
 import com.google.android.gms.maps.model.LatLng
+import com.saycs.saycs.FormularioEventoActivity
+import com.saycs.saycs.MostrarEventoActivity
 import com.saycs.saycs.mundo.model.Evento
 import com.saycs.saycs.mundo.model.MyLocation
 import org.osmdroid.bonuspack.routing.OSRMRoadManager
@@ -18,11 +22,13 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
+import org.osmdroid.views.overlay.Marker.OnMarkerClickListener
 import org.osmdroid.views.overlay.Polyline
 import org.osmdroid.views.overlay.TilesOverlay
+import java.text.SimpleDateFormat
 import java.util.Date
 
-class MapRenderingServices(private val context: Context, private val map : MapView) {
+class MapRenderingServices(private val context: Context, private val map : MapView): OnMarkerClickListener {
     companion object{
         const val lowerLeftLatitude=1.396967
         const val lowerLeftLongitude= -78.903968
@@ -37,7 +43,7 @@ class MapRenderingServices(private val context: Context, private val map : MapVi
     private var roadManager:RoadManager = OSRMRoadManager(context, "ANDROID")
     private var geocoder: Geocoder
     private var roadOverlay: Polyline? = null
-
+    private lateinit var eventMap: HashMap<Marker,Evento>
     init {
         Configuration.getInstance().load(context, androidx.preference.PreferenceManager.getDefaultSharedPreferences(context))
         map.setTileSource(TileSourceFactory.MAPNIK)
@@ -46,6 +52,7 @@ class MapRenderingServices(private val context: Context, private val map : MapVi
         map.controller.setZoom(18.0)
         map.controller.animateTo(bogota)
         geocoder= Geocoder(context)
+        eventMap= HashMap()
     }
     fun addMarker(event: Evento){
         val marker= Marker(map)
@@ -55,7 +62,9 @@ class MapRenderingServices(private val context: Context, private val map : MapVi
         marker.icon=icon
         marker.position=event.geoPoint
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+        marker.setOnMarkerClickListener(this)
         map.overlays.add(marker)
+        eventMap[marker]= event
         markers.add(marker)
     }
     fun addMarker(geo: GeoPoint, title: String?=null, typeMarker: Char){
@@ -179,5 +188,25 @@ class MapRenderingServices(private val context: Context, private val map : MapVi
             return LatLng(addr.latitude, addr.longitude)
         }
         return null
+    }
+
+    override fun onMarkerClick(marker: Marker?, mapView: MapView?): Boolean {
+        val event= eventMap[marker]
+        val intent= Intent(context, MostrarEventoActivity::class.java)
+        if (event != null) {
+            intent.putExtra("nombre", event.nombreEvento)
+            intent.putExtra("descripcion", event.descripcion)
+            intent.putExtra("latitude", event.geoPoint.latitude)
+            intent.putExtra("longitude", event.geoPoint.longitude)
+            val fechaFormateada= SimpleDateFormat("dd 'de' MMMM, yyyy").format(event.fecha)
+            val horaFormateada = SimpleDateFormat("hh:mm a").format(event.fecha)
+            intent.putExtra("fecha", fechaFormateada)
+            intent.putExtra("hora",horaFormateada)
+            intent.putExtra("lugar", event.lugar)
+            intent.putExtra("urlPoster", event.urlPoster)
+            intent.putExtra("Etiqueta", event.etiqueta)
+        }
+        context.startActivity(intent)
+        return true
     }
 }

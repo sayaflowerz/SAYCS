@@ -6,6 +6,7 @@ import com.saycs.saycs.mundo.services.FileUtils
 
 class EventosController (private val context: Context){
     var eventos : List<Evento> = mutableListOf()
+
     private val fileUtils : FileUtils = FileUtils(context)
     fun cargarEventos(){
         eventos=fileUtils.readEvents()

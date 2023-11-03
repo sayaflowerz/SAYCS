@@ -73,7 +73,7 @@ class RegisterempresaActivity : AppCompatActivity() {
                 registroExitoso=true
             }
         }
-
+    return  registroExitoso
     }
 
 }

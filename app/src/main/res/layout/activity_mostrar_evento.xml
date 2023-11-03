@@ -45,7 +45,7 @@
             android:background="@color/bonne">
 
             <TextView
-                android:id="@+id/Intereses"
+                android:id="@+id/nombreEventotxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre del evento"
@@ -106,7 +106,7 @@
 
 
                     <TextView
-                        android:id="@+id/EventDate2"
+                        android:id="@+id/informacionEvento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fecha: 29 de diciembre, 2023
@@ -161,10 +161,11 @@
                 app:cardElevation="20dp">
 
                 <ImageView
+                    android:id="@+id/imagen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/poster2" />
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true" />
 
             </androidx.cardview.widget.CardView>
 
