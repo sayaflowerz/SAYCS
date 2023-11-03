@@ -1,5 +1,6 @@
 package com.saycs.saycs
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -46,6 +47,14 @@ class LoginuserActivity : AppCompatActivity() {
 
                 ParseUser.logInInBackground(usuario, contrasena) { user: ParseUser?, e: ParseException? ->
                     if (user != null) {
+
+                        val sessionToken = user.sessionToken
+                        val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("sessionToken", sessionToken)
+                        editor.apply()
+                        Log.e("PARSE", "Login exitoso: $sessionToken")
+
                         val intent = Intent(this, MapActivity::class.java)
                         startActivity(intent)
                     } else {

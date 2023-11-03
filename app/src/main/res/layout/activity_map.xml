@@ -34,10 +34,25 @@
 
             <Button
                 android:id="@+id/resgistrarUsuariobtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/registrar_usuario"
-                android:pointerIcon="horizontal_double_arrow"/>
+                android:layout_width="144dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/DarkBlue"
+                android:text="Autenticación"
+                android:textColor="@color/bonne"
+                android:textSize="15sp"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/logOutbtn"
+                android:layout_width="144dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/DarkBlue"
+                android:text="Log Out"
+                android:textColor="@color/bonne"
+                android:textSize="15sp"
+                app:cornerRadius="20dp" />
+
+
         </LinearLayout>
 
     </FrameLayout>

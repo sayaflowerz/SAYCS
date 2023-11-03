@@ -1,15 +1,20 @@
 package com.saycs.saycs
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import com.parse.ParseAnonymousUtils
+import com.parse.ParseException
+import com.parse.ParseUser
 import com.saycs.saycs.databinding.ActivityMapBinding
 import com.saycs.saycs.mundo.controller.EventosController
 import com.saycs.saycs.mundo.model.MyLocation
@@ -35,6 +40,9 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
         super.onCreate(savedInstanceState)
         binding= ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        verificarToken()
+
         locationService= LocationService(this, this)
         map= binding.mapView
         mapRenderingServices= MapRenderingServices(this,map)
@@ -67,9 +75,8 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
                 //"Agregar cuando no se puede acceder a la funcion"
             }
         }
-        binding.resgistrarUsuariobtn.setOnClickListener {
-            startActivity(Intent(baseContext, LoginuserActivity::class.java))
-        }
+
+
     }
     private fun updateUI(location: Location){
         if (ActivityCompat.checkSelfPermission(
@@ -104,6 +111,9 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
         map.onResume()
         map.controller.animateTo(mapRenderingServices.currentLocation.geoPoint)
         locationService.startLocationUpdates()
+        runOnUiThread {
+            verificarToken()
+        }
     }
 
     override fun onLocationUpdate(location: Location) {
@@ -117,4 +127,34 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
             eventos[i].geoPoint
         }
     }
+
+    private fun verificarToken(){
+        val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        val sessionToken = sharedPreferences.getString("sessionToken", null)
+
+        if (ParseUser.getCurrentUser() != null) {
+            binding.resgistrarUsuariobtn.visibility= View.GONE
+            binding.logOutbtn.visibility = View.VISIBLE
+
+            binding.logOutbtn.setOnClickListener{
+                ParseUser.logOut()
+
+                // Borrar el token de las preferencias compartidas
+                val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.remove("sessionToken") // Elimina el token
+                editor.apply()
+
+                startActivity(Intent(baseContext, MapActivity::class.java))
+            }
+        } else {
+            binding.resgistrarUsuariobtn.visibility= View.VISIBLE
+            binding.logOutbtn.visibility = View.GONE
+
+            binding.resgistrarUsuariobtn.setOnClickListener {
+                startActivity(Intent(baseContext, LoginuserActivity::class.java))
+            }
+        }
+    }
+
 }

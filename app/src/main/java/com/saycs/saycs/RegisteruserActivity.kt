@@ -1,5 +1,6 @@
 package com.saycs.saycs
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -36,7 +37,7 @@ class RegisteruserActivity : AppCompatActivity() {
         binding.SignInButton.setOnClickListener{
             if (validateForm()){
                 if(guardarUsuario()){
-                    val intent = Intent(baseContext, LoginuserActivity::class.java)
+                    val intent = Intent(baseContext, MapActivity::class.java)
                     intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TOP
                     startActivity(intent)
                 }
@@ -53,18 +54,27 @@ class RegisteruserActivity : AppCompatActivity() {
     }
 
     private fun guardarUsuario():Boolean {
-        var registroExitoso = false
+        var registroExitoso = true
+
         var userRegistro = ParseUser()
         userRegistro.username = binding.username.text.toString()
         userRegistro.setPassword (binding.password.text.toString())
+        userRegistro.put("rol","usuario")
 
         userRegistro.signUpInBackground{e: ParseException? ->
             if(e==null){
+                // Registro exitoso, guarda el token de sesión en SharedPreferences
+                val sessionToken = userRegistro.sessionToken
+                val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("sessionToken", sessionToken)
+                editor.apply()
                 registroExitoso=true
+                Log.e("PARSE", "Registro exitoso: $sessionToken")
             }
             else{
                 val errorMessage = e.message
-                Log.e("Registro", "Código de error: ${e.code}")
+                Log.e("PARSE", "Código de error: ${e.code}")
                 registroExitoso=false
             }
 
