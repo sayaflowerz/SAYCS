@@ -12,7 +12,7 @@ import com.parse.ParseQuery
 import com.parse.ParseUser
 import com.saycs.saycs.databinding.ActivityLoginempresaBinding
 
-class LoginempresaActivity : AppCompatActivity() {
+class   LoginempresaActivity : AppCompatActivity() {
     lateinit var binding : ActivityLoginempresaBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

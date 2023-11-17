@@ -86,6 +86,9 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
                 }
             }
         }
+        binding.inscribirEventoButton.setOnClickListener{
+            startActivity(Intent(baseContext, FormularioEventoActivity::class.java))
+        }
     }
     private fun updateUI(location: Location){
         if (ActivityCompat.checkSelfPermission(
