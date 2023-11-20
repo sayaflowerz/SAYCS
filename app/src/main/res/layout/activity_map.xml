@@ -45,16 +45,7 @@
             android:gravity="end"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/resgistrarUsuariobtn"
-                android:layout_width="82dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/DarkGreen"
-                android:text="Sign In"
-                android:textColor="@color/bonne"
-                android:textSize="15sp"
-                app:cornerRadius="20dp" />
+
 
             <Button
                 android:id="@+id/Regiterbtn"
@@ -63,6 +54,16 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/DarkGreen"
                 android:text="Registra tu empresa"
+                android:textColor="@color/bonne"
+                android:textSize="15sp"
+                app:cornerRadius="20dp" />
+            <Button
+                android:id="@+id/resgistrarUsuariobtn"
+                android:layout_width="82dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/DarkGreen"
+                android:text="Sign In"
                 android:textColor="@color/bonne"
                 android:textSize="15sp"
                 app:cornerRadius="20dp" />

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,12 +8,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity"
-    android:background="@drawable/intereses">
+    android:background="@drawable/intereses"
+    tools:context=".MainActivity">
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
@@ -31,10 +29,10 @@
             android:background="@color/bonne">
 
             <TextView
-                android:id="@+id/Intereses"
+                android:id="@+id/nombreEventotxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tus eventos isncritos"
+                android:text="Tus eventos inscritos"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/DarkBlue"
                 android:textSize="30sp"
@@ -49,19 +47,16 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <GridLayout
-            android:id="@+id/gridLayout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="1"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
             <androidx.cardview.widget.CardView
                 android:background="@drawable/customedittext"
-                android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="20dp">
@@ -71,42 +66,55 @@
                     android:layout_height="match_parent"
                     android:visibility="invisible" />
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="208dp"
-                    android:background="@color/DarkLightBlue"
-                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="23dp">
-
+                    android:gravity="center_horizontal"
+                    android:padding="15dp"
+                    android:background="@color/DarkGreen">
 
                     <TextView
-                        android:id="@+id/Evento1"
+                        android:id="@+id/EventDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Graffiti"
+                        android:text="NOMBRE DEL EVENTO 1"
                         android:textColor="@color/bonne"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
 
-                    <ImageView
-                        android:layout_width="134dp"
-                        android:layout_height="118dp"
+                    <TextView
+                        android:id="@+id/informacionEvento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha: fecha x
+                        \nHora: 8pm\nLugar: lygar x \nDireccion: calle x "
+                        android:textColor="@color/bonne"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
 
-                        android:src="@drawable/graffiti" />
+                    <Button
+                        android:id="@+id/detalle"
+                        android:layout_width="187dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="@color/bonne"
+                        android:text="Ver detalles"
+                        android:textColor="@color/DarkBlue"
+                        android:textSize="18sp"
+                        app:cornerRadius="20dp" />
+
+
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
-
 
             <androidx.cardview.widget.CardView
                 android:background="@drawable/customedittext"
-                android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="20dp">
@@ -116,41 +124,118 @@
                     android:layout_height="match_parent"
                     android:visibility="invisible" />
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/DarkLightBlue"
-                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="23dp">
-
+                    android:gravity="center_horizontal"
+                    android:padding="15dp"
+                    android:background="@color/DarkGreen">
 
                     <TextView
-                        android:id="@+id/Coslpay"
+                        android:id="@+id/EventName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Cosplay"
+                        android:text="NOMBRE DEL EVENTO 2"
                         android:textColor="@color/bonne"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
 
-                    <ImageView
-                        android:layout_width="127dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/cosplay" />
+                    <TextView
+                        android:id="@+id/informacionEvento2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha: fecha x
+                        \nHora: 8pm\nLugar: lugar x \nDireccion: calle x "
+                        android:textColor="@color/bonne"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+                    <Button
+                        android:id="@+id/detalle2"
+                        android:layout_width="187dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="@color/bonne"
+                        android:text="Ver detalles"
+                        android:textColor="@color/DarkBlue"
+                        android:textSize="18sp"
+                        app:cornerRadius="20dp" />
+
 
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:background="@drawable/customedittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="20dp">
 
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="invisible" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="15dp"
+                    android:background="@color/DarkGreen">
 
-        </GridLayout>
+                    <TextView
+                        android:id="@+id/EventName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NOMBRE DEL EVENTO 3"
+                        android:textColor="@color/bonne"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
 
+                    <TextView
+                        android:id="@+id/informacionEvento3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha: fecha x
+                        \nHora: 8pm\nLugar: lugarx \nDireccion: calle x "
+                        android:textColor="@color/bonne"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <Button
+                        android:id="@+id/detalle3"
+                        android:layout_width="187dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="@color/bonne"
+                        android:text="Ver detalles"
+                        android:textColor="@color/DarkBlue"
+                        android:textSize="18sp"
+                        app:cornerRadius="20dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/VerEventos"
+                android:layout_width="187dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/DarkLightBlue"
+                android:text="Volver al mapa"
+                android:textColor="@color/bonne"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+
+        </LinearLayout>
 
     </ScrollView>
 
