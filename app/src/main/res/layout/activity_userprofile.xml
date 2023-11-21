@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/background_empresa2"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/customedittext"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="218dp"
+            android:layout_height="wrap_content"
+            android:background="@color/bonne"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_rounded_background"
+                android:scaleType="centerCrop"
+                android:src="@drawable/personaje3" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        android:background="@drawable/customedittext">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bonne"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/usernameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profileImage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Usuario123"
+                android:textColor="@color/DarkBlue"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/emailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/usernameTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="usuario123@example.com"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/editProfileButton"
+                android:layout_width="187dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/emailTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/DarkBlue"
+                android:text="Editar Perfil"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/VerEventos"
+                android:layout_width="187dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/DarkLightBlue"
+                android:text="Ver Mis eventos"
+                android:textColor="@color/bonne"
+                android:textSize="16sp"
+                app:cornerRadius="16dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/Mapa"
+        android:layout_width="187dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/emailTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/DarkBlue"
+        android:text="Ver mapa de ventos"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"/>
+
+</LinearLayout>

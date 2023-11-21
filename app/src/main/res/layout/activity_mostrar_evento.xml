@@ -11,22 +11,6 @@
     android:background="@drawable/intereses"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/DarkBlue">
-
-        <TextView
-            android:id="@+id/tv_title_toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginLeft="20dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/bonne"/>
-
-    </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -98,7 +82,7 @@
                         android:id="@+id/EventDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="INFORMACIONDEL EVENTO "
+                        android:text="INFORMACION DEL EVENTO "
                         android:textColor="@color/bonne"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -162,12 +146,12 @@
 
                 <ImageView
                     android:id="@+id/imagen"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true" />
-
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/poster1"/>
             </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
     </ScrollView>
