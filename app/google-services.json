@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "769193717395",
+    "project_id": "saycs-23cdd",
+    "storage_bucket": "saycs-23cdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769193717395:android:fe3a4e3565f58777d7a766",
+        "android_client_info": {
+          "package_name": "com.saycs.saycs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuCEsq8mnvvX8G0wJD2S2aOHfYVAB9ePo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
