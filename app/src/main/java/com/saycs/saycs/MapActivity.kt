@@ -108,7 +108,6 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
         } else {
             mapRenderingServices.currentLocation.geoPoint= GeoPoint(location.latitude,location.longitude)
             mapRenderingServices.addMarker(mapRenderingServices.currentLocation.geoPoint, typeMarker = 'A')
-            mapRenderingServices.center(GeoPoint(location.latitude,location.longitude))
         }
     }
 
