@@ -60,6 +60,7 @@ class RegisteruserActivity : AppCompatActivity() {
         userRegistro.username = binding.username.text.toString()
         userRegistro.setPassword (binding.password.text.toString())
         userRegistro.put("rol","usuario")
+        userRegistro.put("numPersonaje","1")
 
         userRegistro.signUpInBackground{e: ParseException? ->
             if(e==null){
