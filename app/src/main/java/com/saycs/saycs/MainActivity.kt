@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.parse.ParseAnonymousUtils
 import com.parse.ParseException
 import com.parse.ParseUser
+import com.saycs.saycs.PersistirData.Companion.tipoLogin
 import com.saycs.saycs.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         loginParse()
+
         val s= "https://i.gifer.com/fxcY.gif"
         val image= binding.entrada
         val uri = Uri.parse(s)
@@ -46,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                         this,
                         "Token de usuario recuperado: ${user.username}",
                         Toast.LENGTH_SHORT
+
                     )
                     toast.show()
                 } else {
