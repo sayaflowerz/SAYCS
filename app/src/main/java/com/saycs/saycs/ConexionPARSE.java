@@ -7,7 +7,7 @@ import com.parse.Parse;
 
 public class ConexionPARSE extends Application {
     //public static final String IP_NUBEPUJ = "http://10.43.100.9:1337/parse";
-    public static final String IP_GCP = "http://34.16.161.251:1337/parse";
+    public static final String IP_GCP = "http://34.125.23.132:1337/parse";
 
     @Override
     public void onCreate() {
