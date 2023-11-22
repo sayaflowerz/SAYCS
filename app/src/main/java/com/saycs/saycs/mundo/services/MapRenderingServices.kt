@@ -73,7 +73,7 @@ class MapRenderingServices(private val context: Context, private val map : MapVi
             'A' -> {
                 marker.title="Ubicacion Actual"
                 val icon= ResourcesCompat.getDrawable(context.resources,
-                    R.drawable.baseline_my_location_24_blue, context.theme)
+                    R.drawable.personaje10, context.theme)
                 marker.icon=icon
                 if(currentPositionMarker!=null){
                     map.overlays.remove(currentPositionMarker)
