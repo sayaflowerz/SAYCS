@@ -67,13 +67,66 @@ class MapRenderingServices(private val context: Context, private val map : MapVi
         eventMap[marker]= event
         markers.add(marker)
     }
-    fun addMarker(geo: GeoPoint, title: String?=null, typeMarker: Char){
+
+    fun addCharacter(geo:GeoPoint, numPersonaje: Int){
+        val marker= Marker(map)
+
+        var icon= ResourcesCompat.getDrawable(context.resources,
+            R.drawable.baseline_location_on_24_red, context.theme)
+
+        if (numPersonaje==1){
+            icon= ResourcesCompat.getDrawable(context.resources,
+                R.drawable.personaje1, context.theme)
+        }
+        else if(numPersonaje==2){
+            icon= ResourcesCompat.getDrawable(context.resources,
+                R.drawable.personaje2, context.theme)
+        }
+        else if(numPersonaje==3){
+            icon= ResourcesCompat.getDrawable(context.resources,
+                R.drawable.personaje3, context.theme)
+        }
+
+        else if(numPersonaje==5){
+            icon= ResourcesCompat.getDrawable(context.resources,
+                R.drawable.personaje5, context.theme)
+        }
+        else if(numPersonaje==6){
+            icon= ResourcesCompat.getDrawable(context.resources,
+                R.drawable.personaje6, context.theme)
+        }
+        else if(numPersonaje==7){
+            icon= ResourcesCompat.getDrawable(context.resources,
+                R.drawable.personaje7, context.theme)
+        }
+
+        else if(numPersonaje==9){
+            icon= ResourcesCompat.getDrawable(context.resources,
+                R.drawable.personaje9, context.theme)
+        }
+        else if(numPersonaje==10){
+            icon= ResourcesCompat.getDrawable(context.resources,
+                R.drawable.personaje10, context.theme)
+        }
+
+
+        marker.icon=icon
+        marker.position=geo
+        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+        marker.setOnMarkerClickListener(this)
+        map.overlays.add(marker)
+
+        markers.add(marker)
+    }
+    fun addMarker(geo: GeoPoint, title: String?=null, typeMarker: Char, numPersonaje:Int){
         val marker= Marker(map)
         when (typeMarker) {
             'A' -> {
                 marker.title="Ubicacion Actual"
                 val icon= ResourcesCompat.getDrawable(context.resources,
                     R.drawable.personaje10, context.theme)
+
+
                 marker.icon=icon
                 if(currentPositionMarker!=null){
                     map.overlays.remove(currentPositionMarker)
@@ -137,7 +190,7 @@ class MapRenderingServices(private val context: Context, private val map : MapVi
         val road = roadManager.getRoad(routePoints)
         removeMarkers()
         for (i in routePoints) {
-            addMarker(i, typeMarker = 'T')
+            addMarker(i, typeMarker = 'T', numPersonaje = 1)
         }
         displayRoad(road)
     }

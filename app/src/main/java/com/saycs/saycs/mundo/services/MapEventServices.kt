@@ -15,7 +15,7 @@ class MapEventServices (private val map: MapView, private val mapRenderingServic
             }
             override fun longPressHelper(p: GeoPoint?): Boolean {
                 if(p!=null) {
-                    longPressOnMap(p)
+
                 }
                 return true
             }
@@ -24,7 +24,7 @@ class MapEventServices (private val map: MapView, private val mapRenderingServic
     }
     private fun longPressOnMap(geo: GeoPoint) {
         val snippet: String = mapRenderingService.findAddress(LatLng(geo.latitude, geo.longitude)) ?: ""
-        mapRenderingService.addMarker(geo, snippet, 'L')
+        mapRenderingService.addMarker(geo, snippet, 'L', numPersonaje = 19)
         mapRenderingService.drawRoute(mapRenderingService.currentLocation.geoPoint,geo)
     }
 }

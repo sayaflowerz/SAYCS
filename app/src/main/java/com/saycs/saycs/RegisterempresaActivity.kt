@@ -10,7 +10,7 @@ import com.parse.ParseException
 import com.parse.ParseObject
 import com.parse.ParseUser
 import com.saycs.saycs.databinding.ActivityRegisterempresaBinding
-
+import java.util.UUID
 class RegisterempresaActivity : AppCompatActivity() {
     lateinit var binding : ActivityRegisterempresaBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +78,8 @@ class RegisterempresaActivity : AppCompatActivity() {
         objectRegistro.username = usuario
         objectRegistro.setPassword(contrasena)
         objectRegistro.put("rol","empresa")
-
+        val uniqueID = UUID.randomUUID().toString()
+        objectRegistro.email="$uniqueID@gmail.com"
         objectRegistro.put("nombre_empresa",nombreEmpresa)
         objectRegistro.put("direccion_empresa",direccionEmpresa)
         objectRegistro.put("actividad_economica",actividadEconomica)

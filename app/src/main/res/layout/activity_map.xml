@@ -57,7 +57,7 @@
 
 
             <Button
-                android:id="@+id/Regiterbtn"
+                android:id="@+id/RegistrarEmpresa"
                 android:layout_width="125dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="8dp"

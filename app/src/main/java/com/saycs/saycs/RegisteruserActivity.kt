@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.parse.ParseACL
 import com.parse.ParseException
 import com.parse.ParseUser
 import com.saycs.saycs.databinding.ActivityRegisteruserBinding
+import java.util.UUID
+
+
 
 class RegisteruserActivity : AppCompatActivity() {
     lateinit var binding : ActivityRegisteruserBinding
@@ -61,6 +65,13 @@ class RegisteruserActivity : AppCompatActivity() {
         userRegistro.setPassword (binding.password.text.toString())
         userRegistro.put("rol","usuario")
         userRegistro.put("numPersonaje","1")
+        val uniqueID = UUID.randomUUID().toString()
+
+        userRegistro.email= "$uniqueID@gmail.com"
+
+        val acl = ParseACL()
+        acl.publicReadAccess = true
+        userRegistro.acl=acl
 
         userRegistro.signUpInBackground{e: ParseException? ->
             if(e==null){
@@ -90,4 +101,6 @@ class RegisteruserActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
+
 }
