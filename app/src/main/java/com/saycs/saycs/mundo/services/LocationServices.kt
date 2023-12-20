@@ -37,15 +37,18 @@ class LocationService(private val context:Context, private val locationUpdateLis
                 super.onLocationResult(result)
                 val location= result.lastLocation!!
                 var userParse = ParseUser.getCurrentUser()
-                userParse.put("latitud",location.latitude)
-                userParse.put("longitud",location.longitude)
-                userParse.saveInBackground { e ->
-                    if (e == null) {
-                        Log.d("PARSE","Localizacion actualizada a: "+location.latitude+","+location.longitude)
-                    } else {
-                        Log.d("PARSE","Error al actualizar Localizacion")
+                if (userParse != null && userParse.isAuthenticated) {
+                    userParse.put("latitud",location.latitude)
+                    userParse.put("longitud",location.longitude)
+                    userParse.saveInBackground { e ->
+                        if (e == null) {
+                            Log.d("PARSE","Localizacion actualizada a: "+location.latitude+","+location.longitude)
+                        } else {
+                            Log.d("PARSE","Error al actualizar Localizacion")
+                        }
                     }
                 }
+
                 locationUpdateListener.onLocationUpdate(location)
             }
         }

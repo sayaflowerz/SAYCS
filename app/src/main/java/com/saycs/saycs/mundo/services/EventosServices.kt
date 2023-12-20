@@ -5,7 +5,9 @@ import com.saycs.saycs.repository.EventosRepository
 
 class EventosServices {
     private var eventosRepository= EventosRepository()
+/*
     fun cargarEventos(): List<Evento>{
         return eventosRepository.cargarEventos()
     }
+*/
 }

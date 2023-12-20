@@ -50,9 +50,11 @@ class MapActivity : AppCompatActivity(), LocationService.LocationUpdateListener 
         mapEventServices = MapEventServices(map, mapRenderingServices)
         mapEventServices.createOverlayEvents()
         eventosController= EventosController(this)
-        eventosController.cargarEventos()
-        pintarEventosInteres()
-        pintarUsuarios()
+        eventosController.cargarEventos{
+            pintarEventosInteres()
+        }
+
+
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION

@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        loginParse()
+        //loginParse()
 
         val s= "https://i.gifer.com/fxcY.gif"
         val image= binding.entrada
@@ -45,37 +45,15 @@ class MainActivity : AppCompatActivity() {
             // Iniciar sesión automáticamente con el token de sesión
             ParseUser.becomeInBackground(sessionToken) { user: ParseUser?, e: ParseException? ->
                 if (user != null) {
-                    val toast = Toast.makeText(
-                        this,
-                        "Token de usuario recuperado: ${user.username}",
-                        Toast.LENGTH_SHORT
-
-                    )
-                    toast.show()
+                    Log.d("PARSE-LOGIN","Token de usuario recuperado: ${user.username}")
                 } else {
-                    val toast = Toast.makeText(
-                        this,
-                        "Error al iniciar sesión automáticamente",
-                        Toast.LENGTH_SHORT
-                    )
-                    toast.show()
+                    Log.d("PARSE-LOGIN","Error al iniciar sesión automáticamente")
                 }
             }
         }else{
-            ParseAnonymousUtils.logIn { user, e ->
-                if (e == null) {
-                    // El inicio de sesión anónimo fue exitoso
-                    val userId = user.objectId
-                    // Realiza acciones con el usuario anónimo, si es necesario
-                } else {
-                    // El inicio de sesión anónimo falló
-                    Log.e("Parse", "Error al iniciar sesión anónimamente: " + e.message)
-                    Log.e("PARSE",e.stackTraceToString())
-                }
-                Log.d("PARSE","entra a anonimo")
-            }
-
+            Log.d("PARSE-LOGIN","Token de usuario no recuperado")
         }
     }
+
 
 }

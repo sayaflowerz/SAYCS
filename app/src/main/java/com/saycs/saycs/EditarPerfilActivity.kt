@@ -9,6 +9,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.saycs.saycs.databinding.ActivityEditarPerfilBinding
 
+
+
 class EditarPerfilActivity : AppCompatActivity() , AdapterView.OnItemSelectedListener {
     private lateinit var binding: ActivityEditarPerfilBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +23,7 @@ class EditarPerfilActivity : AppCompatActivity() , AdapterView.OnItemSelectedLis
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         val a = p0?.getItemAtPosition(p2)
         if(a == 1){
-            binding.imageView2.setImageDrawable(<Drawable>(R.drawable.personaje1))
+            //binding.imageView2.setImageDrawable(<Drawable>(R.drawable.personaje1))
         }
     }
 

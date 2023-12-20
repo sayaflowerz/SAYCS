@@ -52,6 +52,7 @@ class FormularioEventoActivity : AppCompatActivity() {
         binding.SignInButton.setOnClickListener{
             if (validateForm()){
                 signInEvento()
+                super.onBackPressed()
             }
         }
 
@@ -79,13 +80,20 @@ class FormularioEventoActivity : AppCompatActivity() {
         val fechaEvento = binding.FechaEvento.text.toString()
         val direccionEvento = binding.DireccionEvento.text.toString()
         val tematicaEvento = binding.TematicaEvento.text.toString()
+        val horaEvento = binding.HoraEvento.text.toString()
 
         val evento = ParseObject("Evento")
 
         evento.put("nombre", nombreEvento)
         evento.put("fecha", fechaEvento)
         evento.put("direccion", direccionEvento)
+        //TOCA COLOCAR UN CAMPO DE DESCRIPCION
+        //NO EXISTE EN EL LAYOUT
+        evento.put("descripcion","uwu")
         evento.put("tematica", tematicaEvento)
+        evento.put("longitud","0")
+        evento.put("latitud","0")
+        evento.put("hora",horaEvento)
 
         evento.saveInBackground { e ->
             if (e == null) {
